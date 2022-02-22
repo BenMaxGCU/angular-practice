@@ -1,29 +1,23 @@
-<router-outlet></router-outlet>
-
 <mat-toolbar>
   <div class="header">
-    <button
-      mat-icon-button
-      aria-label="Navigation Menu"
-      (click)="drawer.toggle()"
-    >
+    <button mat-icon-button color="accent" (click)="drawer.toggle()">
       <mat-icon class="headerIcon">menu</mat-icon>
     </button>
     <span class="app-name">Kanban</span>
   </div>
 </mat-toolbar>
 
-<!-- https://i.pinimg.com/474x/f0/94/f9/f094f9bf1ff86bdb51cea95aae0551f6.jpg -->
+<!-- src="https://i.pinimg.com/474x/f0/94/f9/f094f9bf1ff86bdb51cea95aae0551f6.jpg" -->
 
 <mat-drawer-container class="navbar" [hasBackdrop]="true">
-  <mat-drawer #drawer mode="over">
+  <mat-drawer #drawer mode="side">
     <img
       class="avatar mat-elevation-z8"
       alt="profile picture"
-      src="https://pa1.narvii.com/7146/75a61fed8394d3332756489ee76ab7c626ae54fer1-252-252_hq.gif"
+      src="https://i.pinimg.com/236x/b9/b7/8f/b9b78feef136d29fc6ac7cffc12bc991.jpg"
     />
 
-    <h4 class="name">Ben Maxwell</h4>
+    <h4 class="name">Profile Name</h4>
     <p class="jobTitle">Software Engineer</p>
 
     <mat-divider></mat-divider>
@@ -38,7 +32,7 @@
   </mat-drawer>
   <mat-drawer-content class="main">
     <div class="root">
-      <router-outlet></router-outlet>
+      <app-kanban-board class="root-item"></app-kanban-board>
     </div>
   </mat-drawer-content>
 </mat-drawer-container>

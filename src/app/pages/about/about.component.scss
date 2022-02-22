@@ -1,0 +1,28 @@
+@import '../../../colours.scss';
+
+.about-container {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 20px;
+  margin: 60px;
+  border-radius: 0.4em;
+  background-color: $primary;
+  height: 80vh;
+
+  .about-header {
+    color: $secondary;
+
+    h2 {
+      font-size: 2rem;
+      font-weight: bold;
+    }
+  }
+
+  .about-content {
+    color: $secondary;
+
+    p {
+      font-size: 1rem;
+    }
+  }
+}
