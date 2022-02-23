@@ -31,7 +31,9 @@
             />
             <button
               mat-stroked-button
-              (click)="addTask(column.id, taskInput.value)"
+              (click)="
+                addTask(column.id, taskInput.value); taskInput.value = ''
+              "
             >
               <mat-icon
                 aria-hidden="false"

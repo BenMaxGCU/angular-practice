@@ -16,31 +16,6 @@ export class KanbanBoardComponent implements OnInit {
 
   constructor(public dialog: MatDialog, private kanbanService: KanbanService) { }
 
-  /* board: Board = new Board('Planned', [
-    new Column('Ideas', [
-      "Star Trek",
-      "Star Wars",
-      "Battlestar Galatica",
-    ]),
-    new Column('Watching', [
-      "Teenage Mutant Ninja Turtles",
-      "Turtles in a half shell",
-      "Turtle Power",
-      "They're the worlds",
-      "Most fearsome, fighting team",
-    ]),
-    new Column('To Watch', [
-      "Firefly",
-      "Serenity",
-      "Darling in the Franxx",
-    ]),
-    new Column('Done', [
-      "Demon Slayer",
-      "Merlin",
-      "Fire Force",
-    ]),
-  ]); */
-
   ngOnInit(): void {
     this.board = this.kanbanService.getBoard();
   }
