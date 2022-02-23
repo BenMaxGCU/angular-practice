@@ -10,6 +10,7 @@ import { KanbanBoardComponent } from './pages/kanban-board/kanban-board.componen
 import { AboutComponent } from './pages/about/about.component';
 import { AddColumnDialogComponent } from './pages/add-column-dialog/add-column-dialog.component';
 import { FormsModule } from '@angular/forms';
+import { KanbanService } from './services/kanban.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,7 @@ import { FormsModule } from '@angular/forms';
     MaterialModule,
     FormsModule
   ],
-  providers: [],
+  providers: [KanbanService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

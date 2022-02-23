@@ -2,7 +2,8 @@ import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/dr
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Board } from 'src/app/models/board.model';
-import { Column } from 'src/app/models/column.model';
+import { Task } from 'src/app/models/task.model';
+import { KanbanService } from 'src/app/services/kanban.service';
 import { AddColumnDialogComponent } from '../add-column-dialog/add-column-dialog.component';
 
 @Component({
@@ -11,10 +12,11 @@ import { AddColumnDialogComponent } from '../add-column-dialog/add-column-dialog
   styleUrls: ['./kanban-board.component.scss']
 })
 export class KanbanBoardComponent implements OnInit {
+  board: Board = new Board('', []);
 
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog, private kanbanService: KanbanService) { }
 
-  board: Board = new Board('Planned', [
+  /* board: Board = new Board('Planned', [
     new Column('Ideas', [
       "Star Trek",
       "Star Wars",
@@ -37,19 +39,28 @@ export class KanbanBoardComponent implements OnInit {
       "Merlin",
       "Fire Force",
     ]),
-  ]);
+  ]); */
+
+  ngOnInit(): void {
+    this.board = this.kanbanService.getBoard();
+  }
 
   openDialog(): void {
     this.dialog.open(AddColumnDialogComponent, {
       height: '300px',
       width: '300px',
-      data: {column: '', board: ''},
+      data: {name: ''},
     });}
 
-  ngOnInit(): void {
+  addTask(columnId: number, task: string): void {
+    this.kanbanService.addTask(columnId, task);
   }
 
-  drop(event: CdkDragDrop<string[]>) {
+  delete(columnId: number): void {
+    this.kanbanService.removeColumn(columnId);
+  }
+
+  drop(event: CdkDragDrop<Task[]>) {
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
     }

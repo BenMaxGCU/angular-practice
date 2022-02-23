@@ -11,8 +11,35 @@
     <div class="board-wrapper">
       <div class="board-columns" cdkDropListGroup>
         <div class="board-column" *ngFor="let column of board.columns">
-          <div class="column-header">{{ column.name }}</div>
+          <div class="column-header">
+            {{ column.name }}
+            <button mat-stroked-button (click)="delete(column.id)">
+              <mat-icon
+                aria-hidden="false"
+                aria-label="Bin for delete button icon"
+                >delete</mat-icon
+              >
+            </button>
+          </div>
 
+          <div class="column-input">
+            <input
+              matInput
+              #taskInput
+              aria-label="Input for task description"
+              placeholder="Add new task..."
+            />
+            <button
+              mat-stroked-button
+              (click)="addTask(column.id, taskInput.value)"
+            >
+              <mat-icon
+                aria-hidden="false"
+                aria-label="Add for add task button icon"
+                >add</mat-icon
+              >
+            </button>
+          </div>
           <div
             class="tasks-container"
             cdkDropList
@@ -20,7 +47,7 @@
             (cdkDropListDropped)="drop($event)"
           >
             <div class="task" *ngFor="let item of column.tasks" cdkDrag>
-              {{ item }}
+              {{ item.task }}
             </div>
           </div>
         </div>

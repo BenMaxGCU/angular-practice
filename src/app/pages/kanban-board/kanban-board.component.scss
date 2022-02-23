@@ -10,7 +10,7 @@
   display: flex;
   margin: 0 50px;
   margin-top: 10px;
-  justify-content: end;
+  justify-content: flex-end;
 
   .kanban-add {
     border: 3px solid $primary;
@@ -72,6 +72,40 @@
           text-transform: uppercase;
           margin-bottom: 1.2em;
           color: $primary;
+
+          .mat-input-element {
+            margin: 0 1em;
+            width: 44ch;
+            vertical-align: baseline;
+          }
+
+          .mat-stroked-button {
+            margin-left: 1em;
+            border: 2px solid $primary;
+          }
+        }
+
+        .column-input {
+          display: flex;
+          flex-flow: row wrap;
+          font-size: 1.2em;
+          font-weight: bold;
+          text-transform: uppercase;
+          margin-bottom: 1.2em;
+          color: $primary;
+          width: 100%;
+
+          .mat-input-element {
+            width: 60%;
+            margin-right: 1em;
+            border-bottom: 2px solid $primary;
+            vertical-align: baseline;
+          }
+
+          .mat-stroked-button {
+            margin-left: 1em;
+            border: 2px solid $primary;
+          }
         }
       }
     }
